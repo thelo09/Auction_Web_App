@@ -1,0 +1,66 @@
+{% extends "auction/base.html" %} {% block content %}
+<h1>Live Products</h1>
+{% for post in live_products %}
+{% if post.live_until > post.current_time %}
+<article class="media content-section">
+  <img class="rounded-circle article-img" src="{{ post.image.url }}" />
+  <div class="media-body">
+    <h2>
+      <a class="article-title" href="{% url 'product-detail' post.id %}">{{ post.name }}</a>
+    </h2>
+    Seller : {{ post.seller }} <br />
+    Posted on : {{ post.date_posted|date:"F d, Y" }}</br>
+    Live Until: {{post.live_until}}<br />
+    Description :<br>
+    <p class="article-content">{{ post.description }}</p>
+    Base Price : {{ post.base_price }} <br />
+    {% if post.base_price == post.current_price%}
+    No Bids!!
+    {%else%}
+    Current Price : {{post.current_price}} <br />
+    Highest Bidder : {{post.highest_bidder}} <br>
+    {%endif%}
+  </div>
+  {% if post.seller != user%}
+  <!-- <button class="btn btn-secondary">Bid</button> -->
+  <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' post.id%}">Bid</a>
+  {%endif%}
+</article>
+{%endif%}
+{% empty %}
+<p>No live products available.</p>
+{% endfor %}
+<h1>Expired Products</h1>
+{% for post in expired_products %}
+
+
+<article class="media content-section">
+  <img class="rounded-circle article-img" src="{{ post.image.url }}" />
+  <div class="media-body">
+    <h2>
+      <a class="article-title" href="{% url 'product-detail' post.id %}">{{ post.name }}</a>
+    </h2>
+    Status :
+    {% if post.current_price > post.base_price %}
+    Sold
+    {%else%}
+    Unsold
+    {%endif%}
+    <br>
+    Seller : {{ post.seller }} <br />
+    Posted on : {{ post.date_posted|date:"F d, Y" }}</br>
+    Base Price : {{ post.base_price }} <br />
+    Current Price : {{post.current_price}} <br />
+    Live Until: {{post.live_until}}<br />
+    Description :<br>
+    <p class="article-content">{{ post.description }}</p>
+  </div>
+  {% if post.seller == user%}
+  <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'product-delete' post.id%}">Delete</a>
+  {%endif%}
+</article>
+{% empty %}
+<p>No expired products available.</p>
+{% endfor %}
+
+{% endblock content %}
