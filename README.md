@@ -38,3 +38,13 @@ python manage.py runserver
 ```
 
 ## Docker Installation
+
+### Prerequisite
+1. Docker
+
+### Steps
+1. Run the following command
+
+```
+docker run rajashekharreddytella/auction_web_app:v1
+```
