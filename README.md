@@ -13,7 +13,12 @@
 ### Steps
 
 1. Open your bash terminal.
-2. Clone this repository in any directory of your choice.
+2. Create a virtual environment and activate it
+```
+python3 -m venv django && django\Scripts\activate
+```
+
+4. Clone this repository in any directory of your choice.
 
 ```
 git clone https://github.com/thelo09/Auction_Web_App.git
