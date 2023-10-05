@@ -1,5 +1,7 @@
 # Auction_Web_App
 
+## Standalone Installation
+
 ### This is a Web Application used to auction items online
 
 ### Prerequisites
@@ -34,3 +36,5 @@ pip install -r requirements.txt
 ```
 python manage.py runserver
 ```
+
+## Docker Installation
