@@ -14,7 +14,7 @@
 2. Clone this repository in any directory of your choice.
 
 ```
-git https://github.com/thelo09/Auction_Web_App.git
+git clone https://github.com/thelo09/Auction_Web_App.git
 ```
 
 3. Run the following command to move into the cloned repository.
@@ -29,8 +29,8 @@ cd Auction_Web_App
 pip install -r requirements.txt
 ```
 
-5. Run the follwing command to start the Django server
+5. Run the following command to start the Django server
 
 ```
-python manager.py runserver
+python manage.py runserver
 ```
