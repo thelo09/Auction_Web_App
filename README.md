@@ -48,3 +48,5 @@ python manage.py runserver
 ```
 docker run rajashekharreddytella/auction_web_app:v1
 ```
+
+Open localhost:8000 in browser.
